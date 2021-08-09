@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Add Users</title>
+</head>
+<body>
+<form class="form-horizontal" th:object="${userDto}" th:action="@{/addUser}" method="post">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>USERS</legend>
+
+        <!-- user name area -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="user_name">User name</label>
+            <div class="col-md-4">
+                <input id="user_name" th:field="*{name}" placeholder="User name" class="form-control input-md"
+                       required="" type="text">
+            </div>
+        </div>
+
+        <!-- email area -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="email">Email address</label>
+            <div class="col-md-4">
+                <input id="email" th:field="*{email}" name="email" placeholder="Email address"
+                       class="form-control input-md"
+                       required="" type="email">
+            </div>
+        </div>
+
+        <!-- password area -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="password">Password</label>
+            <div class="col-md-4">
+                <input id="password" th:field="*{password}" name="email" placeholder="Password"
+                       class="form-control input-md"
+                       required="" type="password">
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="button"></label>
+            <div class="col-md-4">
+                <button id="button" name="button" class="btn btn-primary" type="submit">Add user</button>
+            </div>
+        </div>
+    </fieldset>
+
+</form>
+</body>
+</html>
