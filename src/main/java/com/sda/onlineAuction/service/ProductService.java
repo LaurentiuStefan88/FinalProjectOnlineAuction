@@ -21,7 +21,8 @@ public class ProductService {
         Product product = new Product();
         product.setName(productDto.getName());
         product.setDescription(productDto.getDescription());
-        product.setCategory(Enum.valueOf(Category.class, productDto.getCategory().toUpperCase()));
+        product.setCategory(Category.valueOf(productDto.getCategory()));
+//        product.setCategory(Enum.valueOf(Category.class, productDto.getCategory().toUpperCase()));
         product.setStartingPrice(Integer.valueOf(productDto.getStartBidingPrice()));
         product.setEndDateTime(LocalDateTime.parse(productDto.getEndDateTime()));
         productRepository.save(product);

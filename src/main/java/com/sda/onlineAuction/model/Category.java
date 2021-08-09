@@ -8,5 +8,6 @@ public enum Category {
     ELECTRONICS,
     AUTO,
     BOOKS,
-    GAMES
+    GAMES,
+    ANIMALS
 }
