@@ -8,11 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -49,6 +51,17 @@ public class HomeController {
         model.addAttribute("products", productDtoList);
         System.out.println("Produse: " + productDtoList);
         return "home";
+    }
+
+    @GetMapping("/item/{productId}")
+    public String getProductPage(@PathVariable(value = "productId") String productId, Model model) {
+        Optional<ProductDto> optionalProductDto = productService.getProductDtoById(productId);
+        if (!optionalProductDto.isPresent()) {
+            return "errorPage";
+        }
+        ProductDto productDto = optionalProductDto.get();
+        model.addAttribute("product", productDto);
+        return "viewItem";
     }
 
 }
