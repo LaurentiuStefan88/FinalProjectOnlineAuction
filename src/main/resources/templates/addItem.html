@@ -22,6 +22,7 @@
                        required="" type="text">
 
             </div>
+            <label th:if="${#fields.hasErrors('name')}" th:class="'error'" th:errors="*{name}" class="col-lg-4 control-label" style="color:red;" ></label>
         </div>
 
         <!-- product description area -->
@@ -33,6 +34,7 @@
                        required="" type="text">
 
             </div>
+            <label th:if="${#fields.hasErrors('description')}" th:class="'error'" th:errors="*{description}" class="col-lg-4 control-label" style="color:red;" ></label>
         </div>
 
         <!-- product starting price area -->
@@ -55,6 +57,7 @@
                             th:value="${colorOpt.name()}" th:text="${colorOpt.name()}"></option>
                 </select>
             </div>
+            <label th:if="${#fields.hasErrors('category')}" th:class="'error'" th:errors="*{category}" class="col-lg-4 control-label" style="color:red;" ></label>
         </div>
 
         <!-- Auction End DAte and Time Area -->
@@ -66,6 +69,7 @@
                        required="" type="datetime-local">
 
             </div>
+            <label th:if="${#fields.hasErrors('endDateTime')}" th:class="'error'" th:errors="*{endDateTime}" class="col-lg-4 control-label" style="color:red;" ></label>
         </div>
 
         <!-- product image area -->
